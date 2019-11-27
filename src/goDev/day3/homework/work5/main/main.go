@@ -33,39 +33,28 @@ func bigIntAdd(a string, b string) string {
 	}
 
 	for i, _ := range max {
+		var singleVal int
 		// 没有达到小数的边界
 		if i < minLen {
 			maxV := int(max[maxLen-i-1]) - ZERO
 			minV := int(min[minLen-i-1]) - ZERO
-			singleSum := maxV + minV
-
-			if isOver {
-				singleSum++
-				isOver = false
-			}
-
-			if singleSum > 10 {
-				isOver = true
-				singleSum -= 10
-			}
-
-			sum = strconv.Itoa(singleSum) + sum
+			singleVal = maxV + minV
 		} else {
 			// 达到小数边界
-			singleVal := int(max[maxLen-i-1]) - ZERO
-
-			if isOver {
-				singleVal++
-				isOver = false
-			}
-
-			if singleVal > 10 {
-				isOver = true
-				singleVal -= 10
-			}
-
-			sum = strconv.Itoa(singleVal) + sum
+			singleVal = int(max[maxLen-i-1]) - ZERO
 		}
+
+		if isOver {
+			singleVal++
+			isOver = false
+		}
+
+		if singleVal > 10 {
+			isOver = true
+			singleVal -= 10
+		}
+
+		sum = strconv.Itoa(singleVal) + sum
 	}
 
 	return sum
