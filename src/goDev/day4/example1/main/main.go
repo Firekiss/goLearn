@@ -2,8 +2,6 @@
 // https://studygolang.com/articles/9425
 package main
 
-import "fmt"
-
 func printFebs(num int) []uint64 {
 	febs := make([]uint64, num)
 
@@ -18,5 +16,5 @@ func printFebs(num int) []uint64 {
 }
 
 func main() {
-	fmt.Printf("前1000个斐波那契数列是 %v\n", printFebs(1000))
+	// fmt.Printf("前1000个斐波那契数列是 %v\n", printFebs(1000))
 }
